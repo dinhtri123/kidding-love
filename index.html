@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+      }
+      body {
+        width: 100%;
+        height: 100vh;
+        background: url("https://png.pngtree.com/thumb_back/fw800/background/20190223/ourmid/pngtree-pink-purple-romantic-love-background-design-backgroundlove-backgroundholiday-backgroundmarch-image_70042.jpg")
+          no-repeat;
+
+        background-size: cover;
+      }
+      .box {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+        padding: 100px;
+      }
+
+      p {
+        font-size: 60px;
+        color: pink;
+        margin-bottom: 50px;
+      }
+      .button {
+        display: flex;
+        gap: 50px;
+      }
+      .btn {
+        padding: 15px 20px;
+        border-radius: 8px;
+        border: none;
+        outline: none;
+        font-size: 18px;
+        color: white;
+        background: pink;
+        position: absolute;
+        top: 200px;
+        width: 200px;
+        height: 50px;
+      }
+      .sayNo {
+        left: 52%;
+      }
+      .sayYes {
+        right: 52%;
+      }
+      .sayYes:hover {
+        background-color: rgb(255, 112, 136);
+      }
+      .love {
+        width: 100%;
+        height: 100vh;
+        transform: translateY(-100%);
+        position: absolute;
+        inset: 0;
+        background: url("https://khoinguonsangtao.vn/wp-content/uploads/2022/08/anh-dong-tinh-yeu.gif")
+          no-repeat;
+        background-size: cover;
+        transition: all 1.2s linear;
+      }
+      .bg-love {
+        transform: translateY(0%);
+        animation: love 1.2s linear;
+        
+      }
+      @keyframes love {
+        0% {
+          transform: translateY(-100%);
+        }
+        100%{
+          transform: translateY(0%);
+        }
+        
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <p>Làm người yêu anh nhé baby</p>
+      <div class="button">
+        <button class="btn sayNo">Em Không Đồng Ý</button>
+        <button class="btn sayYes">Có, Em Đồng Ý</button>
+      </div>
+    </div>
+    <div class="love"></div>
+  </body>
+  <script>
+    const sayNo = document.querySelector(".sayNo");
+    const sayYes = document.querySelector(".sayYes");
+    const love = document.querySelector(".love");
+    sayNo.addEventListener("mouseenter", function () {
+      const values = document.body.getBoundingClientRect();
+      const x = Math.floor(Math.random() * values.width);
+      const y = Math.floor(Math.random() * values.height);
+      this.style.left =
+        x < 200 ? `${x + 220}px` : x > 1160 ? `${x - 220}px` : `${x}px`;
+      this.style.top =
+        y < 50 ? `${y + 60}px` : x > 580 ? `${y - 220}px` : `${y}px`;
+    });
+
+    sayYes.addEventListener("click", function () {
+      love.classList.add("bg-love");
+    });
+  </script>
+</html>
